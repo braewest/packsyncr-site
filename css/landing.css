@@ -1,0 +1,57 @@
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 3rem;
+    margin-top: 1rem;
+}
+
+.hero h1 {
+    margin-bottom: 0rem;
+    font-size: 3rem;
+}
+
+.hero p {
+    margin: 1rem;
+    text-align: center;
+}
+
+.section {
+    width: 60%;
+    max-width: 800px;
+    margin: 10rem auto;
+}
+
+.section h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section p {
+    text-align: center;
+}
+
+.features {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+}
+
+.feature-card h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.feature-card p {
+    text-align: center;
+    margin: 0;
+}
