@@ -14,13 +14,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         return;
     }
 
-    // Get code_verifier and oauth_state
-    const codeVerifier = sessionStorage.getItem("pkce_verifier");
+    // Get oauth_state
     const oauthState = sessionStorage.getItem("oauth_state");
-    if (!codeVerifier) {
-        handleError("Missing code verifier");
-        return;
-    }
     if (state !== oauthState) {
         handleError("Authorization state does not match");
         return;
@@ -32,8 +27,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-                code: code,
-                code_verifier: codeVerifier
+                code: code
             })
         });
 
