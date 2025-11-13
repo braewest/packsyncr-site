@@ -11,7 +11,6 @@ if (accToken) {
     signInButton.addEventListener("click", () => {
         accountSignIn();
     });
-    localStorage.setItem("accToken", "test");
 }
 
 // Provide path to root
