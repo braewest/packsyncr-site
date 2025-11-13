@@ -4,7 +4,7 @@ getStartedButton.addEventListener("click", () => {
     if (accToken) {
         window.location.href = "./pages/dashboard.html";
     } else {
-        accountSignIn();
+        userSignIn();
     }
 });
 

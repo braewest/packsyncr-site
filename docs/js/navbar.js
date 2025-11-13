@@ -1,5 +1,8 @@
 const accountSection = document.getElementById("account-section");
 const accToken = localStorage.getItem("accToken");
+
+let signInScript;
+
 if (accToken) {
     // Sets account.html relative path for files in pages/
     accountSection.innerHTML = `
@@ -9,7 +12,7 @@ if (accToken) {
     // Sign in button
     const signInButton = document.getElementById("sign-in-button");
     signInButton.addEventListener("click", () => {
-        accountSignIn();
+        userSignIn();
     });
 }
 
@@ -20,8 +23,4 @@ function changeAccountRelativePath(realtivePathToRoot) {
             <a href="${realtivePathToRoot}pages/account.html">Account</a>
         `;
     }
-}
-
-function accountSignIn() {
-    alert("Sign in is not currently added");
 }

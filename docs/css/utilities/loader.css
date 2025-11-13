@@ -1,0 +1,35 @@
+.loader {
+    height: 60px;
+    aspect-ratio: 1;
+    --c:no-repeat linear-gradient(var(--primary) 0 0, var(--accent) 100% 100%);
+    background: var(--c), var(--c), var(--c), var(--c);
+    background-size: 33.4% 33.4%;
+    animation: loading 4s infinite cubic-bezier(0.4, 1, 0.4, 1);
+}
+
+@keyframes loading {
+    /* Cycle 1 - Top Left */
+    0%      {background-position:0 0,50% 0,0 50%,50% 50%}
+    6.25%   {background-position:0 0,100% 0,0 100%,50% 50%}
+    12.5%   {background-position:0 50%,100% 0,50% 100%,50% 50%}
+    18.75%  {background-position:0 50%,100% 0,100% 100%,50% 0%}
+    25%     {background-position:50% 50%,100% 0,100% 50%,50% 0%}
+
+    /* Cycle 2 - Top Right */
+    31.25%  {background-position:50% 50%,100% 0,100% 100%,0 0}
+    37.5%   {background-position:50% 50%,50% 0,100% 100%,0 50%}
+    43.75%  {background-position:100% 50%,50% 0,100% 100%,0 100%}
+    50%     {background-position:100% 50%,50% 50%,100% 100%,50% 100%}
+    
+    /* Cycle 3 - Bottom Left */
+    56.25%  {background-position:100% 0,50% 50%,100% 100%,0 100%}
+    62.5%   {background-position:50% 0,50% 50%,100% 50%,0 100%}
+    68.75%  {background-position:0 0,50% 100%,100% 50%,0 100%}
+    75%     {background-position:0 50%,50% 100%,50% 50%,0 100%}
+    
+    /* Cycle 4 - Bottom Right */
+    81.25%  {background-position:0 0,100% 100%,50% 50%,0 100%}
+    87.5%   {background-position:0 0,100% 50%,50% 50%,50% 100%}
+    93.75%  {background-position:0 0,100% 0,0 50%,50% 100%}
+    100%    {background-position:0 0,50% 0,0 50%,50% 50%}
+}
