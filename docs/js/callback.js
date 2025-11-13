@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         // Handle the response
-        console.log("Request body:", code, codeVerifier);
+        console.log("Request body:", code);
         console.log("Token endpoint status:", response.status, response.statusText);
         console.log("Token response:", await response.json());
     } catch (err) {
