@@ -19,12 +19,6 @@ function changeAccountRelativePath(realtivePathToRoot) {
         accountSection.innerHTML = `
             <a href="${realtivePathToRoot}pages/account.html">Account</a>
         `;
-    } else {
-        // Sign in button
-        const signInButton = document.getElementById("sign-in-button");
-        signInButton.addEventListener("click", () => {
-            accountSignIn();
-        });
     }
 }
 
