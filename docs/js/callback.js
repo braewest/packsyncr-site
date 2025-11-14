@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         return;
     }
 
-    // Call cloudflare worker
+    // Call Azure function
     try {
         const response = await fetch(AUTH_PROXY_URL, {
             method: "POST",
@@ -38,9 +38,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         // Handle the response
-        console.log("Request body:", code);
         console.log("Token endpoint status:", response.status, response.statusText);
-        console.log("Token response:", await response.json());
+        console.log("Token response:", response);
     } catch (err) {
         handleError(err);
     }
