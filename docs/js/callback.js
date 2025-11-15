@@ -38,8 +38,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         // Handle the response
+        const data = await response.json();
         console.log("Token endpoint status:", response.status, response.statusText);
-        console.log("Token response:", response);
+        console.log("Token response:", data);
     } catch (err) {
         handleError(err);
     }
