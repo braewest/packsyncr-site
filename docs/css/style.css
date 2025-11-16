@@ -85,6 +85,21 @@ a {
     color: var(--background);
 }
 
+.centered-viewport {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.centered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding-bottom: 20vh;
+}
+
 .packsyncr {
     font-family: 'Elms Sans', sans-serif;
     font-weight: 600;

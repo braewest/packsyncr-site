@@ -1,4 +1,8 @@
-.loader {
+.loader-container {
+    margin: 1rem;
+}
+
+.loader-icon {
     height: 60px;
     aspect-ratio: 1;
     --c:no-repeat linear-gradient(var(--primary) 0 0, var(--accent) 100% 100%);
