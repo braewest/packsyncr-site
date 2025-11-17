@@ -1,7 +1,7 @@
 const accountSection = document.getElementById("account-section");
 const accToken = localStorage.getItem("accToken");
 
-let signInScript;
+let signInRedirect = "dashboard.html"; // default
 
 if (accToken) {
     // Sets account.html relative path for files in pages/
@@ -12,15 +12,20 @@ if (accToken) {
     // Sign in button
     const signInButton = document.getElementById("sign-in-button");
     signInButton.addEventListener("click", () => {
-        userSignIn();
+        userSignIn(signInRedirect);
     });
 }
 
 // Provide path to root
-function changeAccountRelativePath(realtivePathToRoot) {
+function updateAccountRelativePath(realtivePathToRoot) {
     if (accToken) {
         accountSection.innerHTML = `
             <a href="${realtivePathToRoot}pages/account.html">Account</a>
         `;
     }
+}
+
+// Change sign in redirect
+function changeSignInRedirect(newRedirect) {
+    signInRedirect = newRedirect;
 }

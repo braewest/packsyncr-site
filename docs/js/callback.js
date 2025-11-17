@@ -20,10 +20,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         handleError("Authorization state does not match");
         return;
     }
+    sessionStorage.removeItem("oauth_state");
 
     // Call Azure function
+    let response;
     try {
-        const response = await fetch(AUTH_PROXY_URL, {
+        response = await fetch(AUTH_PROXY_URL, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -36,17 +38,37 @@ document.addEventListener("DOMContentLoaded", async () => {
             handleError(errText);
             return;
         }
-
-        // Handle the response
-        const data = await response.json();
-        console.log("Token endpoint status:", response.status, response.statusText);
-        console.log("Token response:", data);
     } catch (err) {
         handleError(err);
     }
+
+    // Handle the response
+    handleResponse(response);
+
+    // Redirect user
+    const callbackRedirect = sessionStorage.getItem("callback_redirect"); // from pages directory
+    if (!callbackRedirect) {
+        window.location.href = "../dashboard.html";
+    } else {
+        window.location.href = `../${callbackRedirect}`;
+    }
 });
+
+async function handleResponse(response) {
+    const data = await response.json();
+    console.log("Token endpoint status:", response.status, response.statusText);
+    console.log("Token response:", data);
+}
 
 function handleError(err) {
     console.error(`Sign in failed. ${err}`);
     alert(`Sign in failed. ${err}`);
+
+    // Redirect user
+    const callbackRedirect = sessionStorage.getItem("callback_redirect"); // from pages directory
+    if (!callbackRedirect) {
+        window.location.href = "../dashboard.html";
+    } else {
+        window.location.href = `../${callbackRedirect}`;
+    }
 }

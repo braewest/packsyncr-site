@@ -1,4 +1,4 @@
-async function userSignIn() {
+async function userSignIn(callbackRedirect = "dashboard.html") {
     console.log("Starting Microsoft OAuth sign-in...");
 
     // Microsoft App Info
@@ -14,6 +14,7 @@ async function userSignIn() {
     // Generate state for CSRF protection
     const state = crypto.randomUUID();
     sessionStorage.setItem("oauth_state", state);
+    sessionStorage.setItem("callback_redirect", callbackRedirect);
 
     const authUrl =
         `https://login.live.com/oauth20_authorize.srf` +

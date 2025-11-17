@@ -8,5 +8,5 @@ getStartedButton.addEventListener("click", () => {
     }
 });
 
-// set navbar.js root
-changeAccountRelativePath("./");
+// Set navbar.js root
+updateAccountRelativePath("./");
