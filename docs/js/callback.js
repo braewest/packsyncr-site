@@ -48,9 +48,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Redirect user
     const callbackRedirect = sessionStorage.getItem("callback_redirect"); // from pages directory
     if (!callbackRedirect) {
-        window.location.href = "../dashboard.html";
+        window.location.replace("../dashboard.html");
     } else {
-        window.location.href = `../${callbackRedirect}`;
+        window.location.replace(`../${callbackRedirect}`);
     }
 });
 
@@ -63,5 +63,5 @@ async function handleResponse(response) {
 function handleError(err) {
     console.error(`Sign in failed. ${err}`);
     alert(`Sign in failed. ${err}`);
-    window.location.href = "../../index.html";
+    window.location.replace("../../index.html");
 }
