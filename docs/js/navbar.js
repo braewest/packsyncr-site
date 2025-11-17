@@ -1,9 +1,9 @@
 const accountSection = document.getElementById("account-section");
-const accToken = localStorage.getItem("accToken");
+const accessToken = localStorage.getItem("access_token");
 
 let signInRedirect = "dashboard.html"; // default
 
-if (accToken) {
+if (accessToken) {
     // Sets account.html relative path for files in pages/
     accountSection.innerHTML = `
         <a href="./account.html">Account</a>
@@ -18,7 +18,7 @@ if (accToken) {
 
 // Provide path to root
 function updateAccountRelativePath(realtivePathToRoot) {
-    if (accToken) {
+    if (accessToken) {
         accountSection.innerHTML = `
             <a href="${realtivePathToRoot}pages/account.html">Account</a>
         `;

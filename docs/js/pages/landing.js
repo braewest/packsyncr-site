@@ -1,7 +1,7 @@
 const getStartedButton = document.getElementById("get-started-button");
 getStartedButton.addEventListener("click", () => {
-    const accToken = localStorage.getItem("accToken");
-    if (accToken) {
+    const accessToken = localStorage.getItem("access_token");
+    if (accessToken) {
         window.location.href = "./pages/dashboard.html";
     } else {
         userSignIn();
