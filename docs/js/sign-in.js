@@ -8,8 +8,7 @@ async function userSignIn(callbackRedirect = "dashboard.html") {
     // Requested Info
     const scopes = [
         "XboxLive.signin",
-        "offline_access",
-        "User.Read"
+        "offline_access"
     ];
 
     // Generate state for CSRF protection
