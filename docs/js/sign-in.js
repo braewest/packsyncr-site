@@ -8,6 +8,7 @@ async function userSignIn(callbackRedirect = "dashboard.html") {
     // Requested Info
     const scopes = [
         "XboxLive.signin",
+        "User.Read",
         "offline_access"
     ];
 
@@ -17,12 +18,13 @@ async function userSignIn(callbackRedirect = "dashboard.html") {
     sessionStorage.setItem("callback_redirect", callbackRedirect);
 
     const authUrl =
-        `https://login.live.com/oauth20_authorize.srf` +
+        `https://login.microsoftonline.com/consumers/oauth2/v2.0/authorize` +
         `?client_id=${encodeURIComponent(CLIENT_ID)}` +
         `&response_type=code` +
         `&redirect_uri=${encodeURIComponent(REDIRECT_URI)}` +
         `&scope=${encodeURIComponent(scopes.join(" "))}` +
-        `&state=${encodeURIComponent(state)}`;
+        `&state=${encodeURIComponent(state)}` +
+        `&prompt=consent`;
 
     window.location.href = authUrl; // Microsoft authoization redirect
 }
