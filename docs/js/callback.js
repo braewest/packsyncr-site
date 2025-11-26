@@ -30,7 +30,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 code: code
-            })
+            }),
+            credentials: "include"
         });
 
         if (!response.ok) {
