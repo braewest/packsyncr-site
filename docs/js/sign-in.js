@@ -3,7 +3,7 @@ async function userSignIn(callbackRedirect = "dashboard.html") {
 
     // Microsoft App Info
     const CLIENT_ID = "4be7b50e-faa7-4a8f-bd49-70d886f5ea0e";
-    const REDIRECT_URI = "https://braewest.github.io/packsyncr-site/pages/auth/callback.html";
+    const REDIRECT_URI = "https://www.packsyncr.com/pages/auth/callback.html";
 
     // Requested Info
     const scopes = [

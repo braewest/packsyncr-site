@@ -1,4 +1,4 @@
-const AUTH_PROXY_URL = "https://packsyncr-auth-bteqekhzbkfaegd6.canadacentral-01.azurewebsites.net/api/auth-proxy";
+const AUTH_PROXY_URL = "https://www.proxy.packsyncr.com/api/auth-proxy";
 
 document.addEventListener("DOMContentLoaded", async () => {
     // Get auth code and state from url
