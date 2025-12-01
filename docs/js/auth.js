@@ -28,3 +28,37 @@ async function userSignIn(callbackRedirect = "dashboard.html") {
 
     window.location.href = authUrl; // Microsoft authoization redirect
 }
+
+// Return the current access token or a new one if the old one is expired
+async function getAccessToken() {
+    // TODO: Check if current access token is valid before generating a new one
+    return await generateAccessToken();
+}
+
+// Generate a new access token
+async function generateAccessToken() {
+    try {
+        const response = await fetch("https://auth.packsyncr.com/access-token", {
+            method: "GET",
+            credentials: "include"
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            console.error("Failed to get access token:", data);
+            return null;
+        }
+
+        const token = data.access_token || null;
+
+        if (token) {
+            // Save access token to local storage
+            localStorage.setItem("access_token", token);
+        }
+        return token;
+    } catch (err) {
+        console.error("Failed to get access token:", err);
+        return null;
+    }
+}

@@ -43,8 +43,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         handleError(err);
     }
 
-    // Handle the response
-    await handleResponse(response);
+    // Get a new access token if the current one is expired (from auth.js)
+    await getAccessToken();
 
     // Redirect user
     const callbackRedirect = sessionStorage.getItem("callback_redirect"); // from pages directory
