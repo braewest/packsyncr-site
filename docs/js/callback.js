@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     } catch (err) {
         handleError(err);
+        return;
     }
 
     // Get a new access token if the current one is expired (from auth.js)
@@ -50,6 +51,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const data = await response.json();
     if (data.newUser === true) {
         window.location.replace("../new-user.html");
+        return;
     }
 
     // Redirect user
