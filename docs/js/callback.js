@@ -46,6 +46,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Get a new access token if the current one is expired (from auth.js)
     await getAccessToken();
 
+    // Redirect new users
+    const data = await response.json();
+    if (data.newUser === true) {
+        window.location.replace("../new-user.html");
+    }
+
     // Redirect user
     const callbackRedirect = sessionStorage.getItem("callback_redirect"); // from pages directory
     if (!callbackRedirect) {
